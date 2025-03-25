@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse News - Modern Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="pulse"></div>
+        <p>Loading News</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <h1>InsTa<span>News</span></h1>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search for news...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="header-buttons">
+                <button id="bookmark-btn" title="Bookmarks">
+                    <i class="fas fa-bookmark"></i>
+                </button>
+                <button id="theme-toggle" title="Toggle Dark Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="news-ticker">
+        <div class="ticker-wrapper container">
+            <div class="ticker-label">BREAKING NEWS</div>
+            <div class="ticker-content-wrapper">
+                <div class="ticker-content" id="ticker-content">
+                    <!-- Ticker content will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel" id="news-carousel">
+                    <!-- Carousel items will be added by JavaScript -->
+                </div>
+                <div class="carousel-controls">
+                    <button id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-indicators" id="carousel-indicators">
+                        <!-- Indicators will be added by JavaScript -->
+                    </div>
+                    <button id="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="categories">
+                <button class="category-btn active" data-category="general">General</button>
+                <button class="category-btn" data-category="business">Business</button>
+                <button class="category-btn" data-category="technology">Technology</button>
+                <button class="category-btn" data-category="sports">Sports</button>
+                <button class="category-btn" data-category="entertainment">Entertainment</button>
+                <button class="category-btn" data-category="health">Health</button>
+                <button class="category-btn" data-category="science">Science</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Today's Headlines</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th-large"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            
+            <div class="news-grid" id="news-grid">
+                <!-- News articles will be added by JavaScript -->
+                <div class="loading-articles">
+                    <div class="loading-pulse"></div>
+                    <p>Loading articles...</p>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button id="load-more-btn">
+                    <span>Load More</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bookmark Panel -->
+    <div class="bookmark-panel" id="bookmark-panel">
+        <div class="bookmark-header">
+            <h3><i class="fas fa-bookmark"></i> Your Bookmarks</h3>
+            <button id="close-bookmarks"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="bookmark-list" id="bookmark-list">
+            <!-- Bookmarked articles will be added by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="share-modal">
+        <div class="share-modal-content">
+            <div class="share-modal-header">
+                <h3>Share Article</h3>
+                <button id="close-share-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="share-modal-body">
+                <p id="share-title">Article Title</p>
+                <div class="share-buttons">
+                    <a href="#" id="share-facebook" class="share-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" id="share-twitter" class="share-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" id="share-whatsapp" class="share-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <button id="share-copy" class="share-btn copy">
+                        <i class="fas fa-link"></i>
+                        <span>Copy Link</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <p class="notification-message"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h2>Pulse<span>News</span></h2>
+                    <p>Your source for the latest news and updates from around the world.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-categories">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#" data-category="business">Business</a></li>
+                        <li><a href="#" data-category="technology">Technology</a></li>
+                        <li><a href="#" data-category="sports">Sports</a></li>
+                        <li><a href="#" data-category="entertainment">Entertainment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-subscribe">
+                    <h3>Subscribe</h3>
+                    <p>Stay updated with our latest news</p>
+                    <div class="subscribe-form">
+                        <input type="email" placeholder="Your Email">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 PulseNews. All rights reserved.</p>
+                <p>Powered by <a href="https://newsapi.org" target="_blank">News API</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
